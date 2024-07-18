@@ -4,7 +4,7 @@ import check50.py
 
 @check50.check()
 def exists():
-    """ Check that tip.py exists """
+    """Carlson - Check that tip.py exists """
     check50.exists("tip.py")
 
 
