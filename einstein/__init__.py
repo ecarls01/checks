@@ -46,7 +46,7 @@ def einstein2():
 
 
 @check50.check(importlater)
-def einstein2():
+def einstein3():
     """ The energy is correct for 50 kg """
     out = check50.run("python einstein.py").stdin("50").stdout(timeout=50)
     if out.strip() != "4500000000000000000":
