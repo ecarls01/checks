@@ -29,45 +29,49 @@ def importlater():
                               help="Remove any import statements and resubmit")
 
 
-@check50.check(importlater)
+@check50.check(deep1)
 def deep1():
     """ input of 42 yields output of Yes"""
     out = check50.run("python deep.py").stdin("42").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
+@check50.check(run)
 def deep2():
     """ input of forty-two yields output of Yes"""
     out = check50.run("python deep.py").stdin("forty-two").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
+@check50.check(run)
 def deep3():
     """ input of forty two yields output of Yes"""
     out = check50.run("python deep.py").stdin("forty two").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
-    
+
+@check50.check(run)
 def deep3():
     """ input of FoRty TwO yields output of Yes"""
     out = check50.run("python deep.py").stdin("FoRty TwO").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
     
-
+@check50.check(run)
 def deep4():
     """ input of 42 (with spaces on either side) yields output of Yes"""
     out = check50.run("python deep.py").stdin("    42    ").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
-    
+
+@check50.check(run)
 def deep5():
     """ input of 50 yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
     if out.strip() != "No":
         raise check50.Mismatch("No", out.strip())
 
-    
+@check50.check(run) 
 def deep6():
     """ input of fifty yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
