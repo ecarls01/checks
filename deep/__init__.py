@@ -33,7 +33,7 @@ def importlater():
 def deep1():
     """ input of 42 yields output of Yes"""
     out = check50.run("python deep.py").stdin("42").stdout(timeout=50)
-    if out.strip() != "input of 42 did not yield output of Yes":
+    if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
 def deep2():
