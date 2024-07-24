@@ -29,51 +29,55 @@ def importlater():
                               help="Remove any import statements and resubmit")
 
 
-@check50.check(deep1)
+@check50.check(importlater)
+
 def deep1():
     """ input of 42 yields output of Yes"""
     out = check50.run("python deep.py").stdin("42").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
-@check50.check(run)
+@check50.check(deep1)
+
 def deep2():
     """ input of forty-two yields output of Yes"""
     out = check50.run("python deep.py").stdin("forty-two").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
-@check50.check(run)
+
+@check50.check(deep2)
 def deep3():
     """ input of forty two yields output of Yes"""
     out = check50.run("python deep.py").stdin("forty two").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
-@check50.check(run)
-def deep3():
+@check50.check(deep3)
+def deep4():
     """ input of FoRty TwO yields output of Yes"""
     out = check50.run("python deep.py").stdin("FoRty TwO").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
     
-@check50.check(run)
-def deep4():
+@check50.check(deep4)
+def deep5():
     """ input of 42 (with spaces on either side) yields output of Yes"""
     out = check50.run("python deep.py").stdin("    42    ").stdout(timeout=50)
     if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
-@check50.check(run)
-def deep5():
+@check50.check(deep5)
+def deep6():
     """ input of 50 yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
     if out.strip() != "No":
         raise check50.Mismatch("No", out.strip())
 
-@check50.check(run) 
-def deep6():
+@check50.check(deep6) 
+def deep7():
     """ input of fifty yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
     if out.strip() != "No":
         raise check50.Mismatch("No", out.strip())
+@check50.check(deep7)
