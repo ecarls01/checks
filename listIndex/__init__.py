@@ -44,10 +44,3 @@ def index4():
     out = check50.run("python listIndex.py").stdin("25").stdout(timeout=50)
     if out.strip() != "Index not valid for this list":
         raise check50.Mismatch("Index not valid for this list", out.strip())
-    
-@check50.check(deep4)
-def deep5():
-    """ input of 42 (with spaces on either side) yields output of Yes"""
-    out = check50.run("python deep.py").stdin("    42    ").stdout(timeout=50)
-    if out.strip() != "Yes":
-        raise check50.Mismatch("Yes", out.strip())
