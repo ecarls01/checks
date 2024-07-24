@@ -75,9 +75,9 @@ def deep6():
         raise check50.Mismatch("No", out.strip())
 
 @check50.check(deep6) 
+
 def deep7():
     """ input of fifty yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
     if out.strip() != "No":
         raise check50.Mismatch("No", out.strip())
-@check50.check(deep7)
