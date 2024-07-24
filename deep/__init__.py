@@ -39,37 +39,37 @@ def deep1():
 def deep2():
     """ input of forty-two yields output of Yes"""
     out = check50.run("python deep.py").stdin("forty-two").stdout(timeout=50)
-    if out.strip() != "input of forty-two did not yield output of Yes":
+    if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
 
 def deep3():
     """ input of forty two yields output of Yes"""
     out = check50.run("python deep.py").stdin("forty two").stdout(timeout=50)
-    if out.strip() != "input of forty two did not yield output of Yes":
+    if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
     
 def deep3():
     """ input of FoRty TwO yields output of Yes"""
     out = check50.run("python deep.py").stdin("FoRty TwO").stdout(timeout=50)
-    if out.strip() != "input of FoRty TwO did not yield output of Yes":
+    if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
     
 
 def deep4():
     """ input of 42 (with spaces on either side) yields output of Yes"""
     out = check50.run("python deep.py").stdin("    42    ").stdout(timeout=50)
-    if out.strip() != "input of 42 (with spaces on either side) did not yield output of Yes":
+    if out.strip() != "Yes":
         raise check50.Mismatch("Yes", out.strip())
     
 def deep5():
     """ input of 50 yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
-    if out.strip() != "input of 50 did not yield output of No":
+    if out.strip() != "No":
         raise check50.Mismatch("No", out.strip())
 
     
 def deep6():
     """ input of fifty yields output of No"""
     out = check50.run("python deep.py").stdin("No").stdout(timeout=50)
-    if out.strip() != "input of fifty did not yield output of No":
+    if out.strip() != "No":
         raise check50.Mismatch("No", out.strip())
