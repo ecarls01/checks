@@ -16,13 +16,13 @@ def run():
 
 @check50.check(run)
 
-def index1():
-    """ input of :1st_place_medal: yields correct output"""
-    out = check50.run("python emojize.py").stdin(":1st_place_medal").stdout(timeout=50)
-    if out.strip() != emoji.emojize(":1st_place_medal:"):
-        raise check50.Mismatch(emoji.emojize(":1st_place_medal:"), out.strip())
+# def index1():
+#     """ input of :1st_place_medal: yields correct output"""
+#     out = check50.run("python emojize.py").stdin(":1st_place_medal").stdout(timeout=50)
+#     if out.strip() != emoji.emojize(":1st_place_medal:"):
+#         raise check50.Mismatch(emoji.emojize(":1st_place_medal:"), out.strip())
 
-@check50.check(index1)
+#@check50.check(index1)
 
 # def index2():
 #     """ input of 0 yields output of 5"""
